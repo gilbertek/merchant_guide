@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+require_relative "lib/converter.rb"
+
+# run the program
+Converter.new(ARGV).process
