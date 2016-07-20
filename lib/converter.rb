@@ -1,19 +1,29 @@
+require "byebug"
+
 class Converter
-  attr_reader :question
+  attr_reader :input, :minerals
 
   def initialize(input)
-    # Process command line arguments
-    # case when a new file is passed in.
-    @input = input
+    @input = input.first
+    @minerals ||= {}
   end
 
-  def process(question)
-    @question = question
+  def process
+    fail "No file found" if input.nil?
+
+    File.open(input, 'r').each_line do |line|
+      parse line
+    end
+  end
+
+  def parse(line)
     case
-    when is_credit_question?
-      CreditCulculator.new(@question).process
+    when is_credit_question?(line)
+      CreditCulculator.new(line).process
     when is_cost_question?
-      CostCulculator.new(@question).process
+      CostCulculator.new(line).process
+    when is_unit_info?
+      UnitParser.new(line)
     else
       "I have no idea what you are talking about"
     end
