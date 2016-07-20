@@ -1,4 +1,4 @@
-Problem three: Merchant's Guide to The Galaxy
+# Problem three: Merchant's Guide to The Galaxy
 
 You decided to give up on earth after the latest financial collapse left 99.99% of the earth's population with 0.01% of the wealth. Luckily, with the scant sum of money that is left in your account, you are able to afford to rent a spaceship, leave earth, and fly all over the galaxy to sell common metals and dirt (which apparently is worth a lot).
 
@@ -56,3 +56,8 @@ glob prok Silver is 68 Credits
 glob prok Gold is 57800 Credits
 glob prok Iron is 782 Credits
 I have no idea what you are talking about
+
+# To run the code
+```
+  ruby bin/converter data/input.txt
+```
