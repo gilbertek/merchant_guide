@@ -13,15 +13,15 @@ class CreditCulculator
     answer
   end
 
-  def answer
-    "#{minerals} is #{credits}"
-  end
-
   def self.is_credit_question? question
     question =~ CREDIT_QUESTION_PATTERN
   end
 
   private
+
+  def answer
+    "#{minerals} is #{credits} Credits"
+  end
 
   def calculate_credits
     result = 0
