@@ -1,11 +1,8 @@
-require "byebug"
-
 class Converter
-  attr_reader :input, :minerals
+  attr_reader :input
 
   def initialize(input)
-    @input = input.first
-    @minerals ||= {}
+    @input = input
   end
 
   def process
@@ -22,18 +19,22 @@ class Converter
       CreditCulculator.new(line).process
     when is_cost_question?
       CostCulculator.new(line).process
-    when is_unit_info?
+    when is_mineral_info?
       UnitParser.new(line)
     else
       "I have no idea what you are talking about"
     end
   end
 
-  def is_credit_question?
-    CreditCulculator.is_credit_question?(@question)
+  def is_mineral_info?(line)
+    InformationBuilder.is_mineral_info?(line)
   end
 
-  def is_cost_question?
-    CostCulculator.is_cost_question?(@question)
+  def is_credit_question?(line)
+    CreditCulculator.is_credit_question?(line)
+  end
+
+  def is_cost_question?(line)
+    CostCulculator.is_cost_question?(line)
   end
 end
