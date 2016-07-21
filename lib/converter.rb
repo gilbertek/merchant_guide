@@ -20,7 +20,7 @@ class Converter
     when is_cost_question?(line)
       CostCulculator.new(line).process
     when is_mineral_info?(line)
-      InformationBuilder.new(line)
+      InformationBuilder.new(line).process
     else
       "I have no idea what you are talking about"
     end
