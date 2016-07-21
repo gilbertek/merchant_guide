@@ -3,9 +3,6 @@ require "bundler/setup"
 require "byebug"
 require "rspec/autorun"
 
-
-
-
 class CreditCulculator
   attr_reader :question, :credits, :minerals
 

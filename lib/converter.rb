@@ -17,9 +17,9 @@ class Converter
     case
     when is_credit_question?(line)
       CreditCulculator.new(line).process
-    when is_cost_question?
+    when is_cost_question?(line)
       CostCulculator.new(line).process
-    when is_mineral_info?
+    when is_mineral_info?(line)
       UnitParser.new(line)
     else
       "I have no idea what you are talking about"

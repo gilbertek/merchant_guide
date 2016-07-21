@@ -10,6 +10,10 @@ class CostCulculator
   def value
   end
 
+  def process
+
+  end
+
   def self.is_cost_question? question
     question =~ COST_QUESTION_PATTERN
   end
