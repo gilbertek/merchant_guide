@@ -1,16 +1,25 @@
 class Converter
-  attr_reader :input
+  attr_reader :input, :result
 
   def initialize(input)
     @input = input
+    @result = []
   end
 
   def process
     fail "No file found" if input.nil?
 
     File.open(input, 'r').each_line do |line|
-      parse line
+      result << parse(line)
     end
+
+    print_result
+  end
+
+  private
+
+  def print_result
+    result.compact.each { |l| puts l }
   end
 
   def parse(line)

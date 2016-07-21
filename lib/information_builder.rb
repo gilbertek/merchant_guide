@@ -12,6 +12,7 @@ class InformationBuilder
   def process
     parse_unit if question =~ UNIT_INFORMATION_PATTERN
     parse_mineral if question =~ MINERAL_INFORMATION_PATTERN
+    return
   end
 
   def parse_unit

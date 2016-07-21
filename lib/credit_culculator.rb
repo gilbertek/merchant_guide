@@ -9,7 +9,7 @@ class CreditCulculator
 
   def process
     @minerals = question.match(CREDIT_QUESTION_PATTERN)[1].strip
-    # @credits = calculate_credits
+    @credits = calculate_credits
     answer
   end
 
@@ -24,11 +24,16 @@ class CreditCulculator
   private
 
   def calculate_credits
-    roman_numeral = ''
-    @minerals.split(" ").each do |item|
-      roman_numeral += MineralParser::MINERALS[item] if MineralParser::MINERALS.include? item
-    end
+    result = 0
+    @minerals.split(" ").reverse.each do |item|
+      value = InformationBuilder::KNOWLEDGE_DB[item] if InformationBuilder::KNOWLEDGE_DB.include?(item)
 
-    RomanNumeralConverter.convert(roman_numeral)
+      if value && value.is_a?(Integer)
+        result += value
+      else
+        result += RomanNumeralConverter.new.convert(value)
+      end
+    end
+    result
   end
 end
