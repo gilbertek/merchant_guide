@@ -9,19 +9,12 @@ The numbers used for intergalactic transactions follows similar convention to th
 Roman numerals are based on seven symbols:
 
 Symbol => Value
-
 I => 1
-
 V => 5
-
 X => 10
-
 L => 50
-
 C => 100
-
 D => 500
-
 M => 1,000
 
 
